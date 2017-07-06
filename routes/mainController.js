@@ -88,9 +88,9 @@ router.get('/register', function(req, res, next) {
 
 router.post('/register', function(req, res) {
 
-    const signupUsername = req.body.username;
-    const signupPassword = req.body.signupPassword;
-    const signupEmail = req.body.email;
+    var signupUsername = req.body.username;
+    var signupPassword = req.body.signupPassword;
+    var signupEmail = req.body.email;
 
     // Don't let users submit blank usernames or passwords/e-mail
       if (signupUsername === '' || signupPassword === '' || signupEmail === '') {
@@ -158,11 +158,11 @@ router.post('/register', function(req, res) {
 
 //==============USER ACCOUNT UPDATE=============
 router.post('/account', (req, res) => {
-    const storedPassword = req.user.password;
+    var storedPassword = req.user.password;
     console.log("STORED PASSWORD:"+req.user.password);
-    const current = req.body.currentPassword;
-    const newPassword = req.body.password;
-    const confirmPassword = req.body.passwordConf;
+    var current = req.body.currentPassword;
+    var newPassword = req.body.password;
+    var confirmPassword = req.body.passwordConf;
     if (confirmPassword && newPassword && current) {
             if (confirmPassword === newPassword) {
                     if (confirmPassword && newPassword && current) {
