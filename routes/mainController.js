@@ -4,6 +4,7 @@ var Account = require('../models/account');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var flash = require('connect-flash');
+var configAuth  = require('../config/auth');
 var router = express.Router();
 
 // ============ MAIN GET ROUTES =============
