@@ -92,7 +92,7 @@ router.route('/')
                   console.log('POST creating new event: ' + event);
                   res.format({
                     html: function(){
-                         res.redirect("/");
+                         res.redirect("/events");
                       },
                     //JSON response will show the newly created event
                     json: function(){
@@ -183,7 +183,7 @@ router.param('id', function(req, res, next, id) {
     //console.log('validating ' + id + ' exists');
     //find the ID in the Database
     mongoose.model('Event').findById(id, function (err, event) {
-        //if not found, repond 404
+        //if not found, respond 404
         if (err) {
             console.log(id + ' was not found');
             res.status(404);
