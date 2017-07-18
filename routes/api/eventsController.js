@@ -91,7 +91,9 @@ router.route('/')
                   //event has been created
                   console.log('POST creating new event: ' + event);
                   res.format({
-
+                    html: function(){
+                         res.redirect("/");
+                      },
                     //JSON response will show the newly created event
                     json: function(){
                         res.json(event);

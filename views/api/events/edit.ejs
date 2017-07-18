@@ -25,9 +25,9 @@
               <div class="col s12 m6 offset-m3 form-group">
                 <p class="z">Name of event</p>
                 <div class="input-field col s12 z">
-                  <input id="name" type="text" name="name" ng-model="formData.name">
-                  <label for="name">Event name</label>
-                </div>      
+                  <input id="name" type="text" name="name"  ng-model="formData.name">
+                  <label for="name"><%= event.name %></label>
+                </div>
                 <p class="">Event type</p>
                 <div class="input-field col s12 v">
                   <select id="type" name="type" ng-model="formData.type">
@@ -41,11 +41,11 @@
                 </div>
                 <div class="input-field col s12 z">
                   <input id="city" name="city" type="text" ng-model="formData.city">
-                  <label for="city" class="">City or suburb</label>
+                  <label for="city" class=""><%= event.city %></label>
                 </div>
                 <div class="col s12 m3 z">
                 <p class="">Day</p>
-                  <select id="day" name="day" ng-model="formData.day">
+                  <select id="day" name="day" value="<%= event.day %>" ng-model="formData.day">
                     <option value="01" selected> 1</option>
                     <option value="02"> 2</option>
                     <option value="03"> 3</option>
@@ -80,7 +80,7 @@
                   </select>
                 </div>
                 <div class="col s12 m6 z">
-                <p class="">Month</p>  
+                <p class="">Month</p>
                   <select id="month" name="month" ng-model="formData.month">
                     <option value="01" selected> January</option>
                     <option value="02"> February</option>
@@ -109,7 +109,7 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
 
         <div class="section teal lighten-4 z">
           <div class="container">
@@ -132,7 +132,7 @@
             </ul>
             <div class="row v">
               <div class="col s12 m6 offset-m3">
-                
+
                 <div class="file-field input-field">
                   <div class="btn waves-effect waves-light btn-large open white black-text big-button">
                     <span><i class="material-icons">camera_alt</i></span>
@@ -146,7 +146,7 @@
                 <div class="col s12 z">
                   <input id="img_url" name="img_url" type="hidden" ng-model="formData.img_url">
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
                 <h5 class="lora w">Set a password?</h5>
                 <div class="input-field col s12">
                   <input id="password" name="password" type="text" ng-model="formData.password">
-                  <label for="password" class="">Password</label>
+                  <label for="password" class=""><%= event.password %></label>
                 </div>
                 <ul class="margined">
                   <li class="white-text">.</li>
@@ -167,7 +167,7 @@
                   <li>Not case sensitive</li>
                   <li>Can't decide? <a href="/passwords">Read our suggestions</a></li>
                 </ul>
-                
+
                 <% if(user){ %>
                 <button type="submit" class="waves-effect waves-light btn-large open white black-text big-button x" ng-click="createEvent()">Save event</button>
                 <% } else { %>
@@ -228,8 +228,8 @@
     <div class="modal-footer">
       <a href="#!!" class="modal-action modal-close waves-effect waves-green btn-flat nocaps">Enter</a>
     </div>
-  </div> 
-      </main> 
+  </div>
+      </main>
       <form action="/api/events/<%= event.id %>" method="post" name="updateevent" enctype="application/x-www-form-urlencoded" class="margined">
       <div class="form-group">Edit this Event
         <p>Name:
@@ -272,7 +272,7 @@
           <button id="btnSubmit" type="submit" class="btn-lg btn-primary btn-centre">Save</button>
         </p>
       </div>
-    </form>       
+    </form>
       <% include ../../partials/footer.ejs %>
       <% include ../../partials/scripts %>
   </body>
